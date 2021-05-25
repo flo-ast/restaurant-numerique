@@ -1,0 +1,48 @@
+<h3>
+    Les produits
+    <a href="admin?task=updateProducts"><i class="fas fa-pencil-alt"></i></a>
+</h3>
+<p class="indication">Scrollez de gauche à droite pour découvrir toutes les données du produit.<br>
+                      Scrollez de haut en bas pour découvrir tous les produits.
+</p>
+<div class="tableLong">
+    <table>
+        <thead>
+            <tr>
+                <th>Catégories</th>
+                <th>Produits</th>
+                <th>Photos</th>
+                <th>Descriptions</th>
+                <th>Allergènes</th>
+                <th>Status</th>
+                <th>Quantités</th>
+                <th>Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($products as $product): ?>
+                <tr>
+                    <td><?=htmlspecialchars($product['Categories'])?></td>
+                    <td><?=htmlspecialchars($product['Name'])?></td>
+                    <td>
+                        <img src="upload/<?=htmlspecialchars($product['Photo'])?>" alt="<?=htmlspecialchars($product['AltPhoto'])?>">
+                    </td>
+                    <td><?=htmlspecialchars($product['Description'])?></td>
+                    <td>
+                        <?php $findAllAllergensByIdProducts = findAllAllergensByIdProduct($pdo, $product['Id']);
+                        foreach ($findAllAllergensByIdProducts as $findAllAllergensByIdProduct): ?>
+                            <p><?= htmlspecialchars($findAllAllergensByIdProduct['Name']) ?></p>
+                        <?php endforeach; ?>
+                    </td>
+                    <?php if ($product['Status'] === 'Loading') :?>
+                        <td>En attente</td>
+                    <?php elseif ($product['Status'] === 'Card') :?>
+                        <td>A la carte</td>
+                    <?php endif; ?>
+                    <td><?=intval($product['QuantityInStock'])?></td>
+                    <td><?=number_format(floatval($product['Price']), 2, ',', ' ')?>€</td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

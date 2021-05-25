@@ -1,0 +1,16 @@
+<h3>
+    Les catégories du menu
+    <a href="admin?task=updateCategories"><i class="fas fa-pencil-alt"></i></a>
+</h3>
+<p class="indication">Déplacez les catégories de haut en bas pour définir leurs positions dans le menu</p>
+<div class="border">
+    <h4>Catégories</h4>
+    <?php foreach ($categories as $categorie): ?>
+        <?php if ($categorie['Status'] === 'Card') :?>
+            <p class="drop" draggable="true" data-position="<?=intval($categorie['OrderMenu'])?>"><?=htmlspecialchars($categorie['Name'])?></p>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    <form action="updateOrderCategories" method="post" id="updateOrderCategories">
+        <input name="data" class="order" type="hidden" value="">
+    </form>
+</div>

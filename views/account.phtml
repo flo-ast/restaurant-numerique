@@ -1,0 +1,32 @@
+<!-- InscriptionPage -->
+<div class="modal cart" id="InscriptionPage">
+    <h2>Inscription</h2>
+    <form action="account" method="post" id="account">
+        <div>
+            <label for="email"> Entrez votre e-mail :</label>
+            <input type="email" id="email" name="userMail" value="leburger@gmail.fr" onClick="eraseValue('leburger@gmail.fr',this.id)" onMouseOut="restoreValue('leburger@gmail.fr',this.id)" onblur="checkValue(this.id)" required>
+        </div>
+        <div>
+            <label for="password"> Créez votre mot de passe (8 caractères minimum) :</label>
+            <input type="password" id="password" name="userPassword" minlength="8" value="Mot de passe" onClick="eraseValue('Mot de passe',this.id)" onMouseOut="restoreValue('Mot de passe',this.id)" onblur="checkValue(this.id)" required>
+        </div>
+        <div>
+            <label for="password2"> Confirmez votre mot de passe (8 caractères minimum) :</label>
+            <input type="password" id="password2" name="userPassword2" minlength="8" value="Mot de passe" onClick="eraseValue('Mot de passe',this.id)" onMouseOut="restoreValue('Mot de passe',this.id)" onblur="checkValue(this.id)" required>
+        </div>
+        <div>
+            <p id="message" class="errorMessage"></p>
+        </div>
+        <?php if (hasFlashes('error')): ?>
+            <div>
+                <?php foreach (getFlashes('error') as $message): ?>
+                    <p class="errorMessage"><?= $message ?></p>
+                <?php endforeach?>
+            </div>
+        <?php endif?>
+        <div class="btn">
+            <button type="submit" class="button" onclick="return validateAccount()">Inscription</button>
+        </div>
+    </form>
+</div>
+<!-- End InscriptionPage -->

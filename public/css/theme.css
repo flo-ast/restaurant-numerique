@@ -1,0 +1,554 @@
+/*******************************************************************************
+                                Variables
+*******************************************************************************/
+
+:root {
+        --redColor: rgb(250 30 30);
+        --greenColor: rgba(98, 237, 104, 0.769);
+        --blackColor: rgb(11, 13, 16);
+        --greyColor: rgba(174, 174, 174, 0.349);
+        --whiteColor: rgb(174, 174, 174);
+        --width: 100%;
+        --lobsterFontFamily: 'Lobster', cursive;
+        --montserratFontFamily: 'Montserrat', sans-serif;
+}
+
+
+/*******************************************************************************
+                                Generalities 
+*******************************************************************************/
+
+* {
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+}
+
+html {
+        font-size: 62.5%;
+        line-height: normal;
+}
+
+body {
+        font-family: var(--montserratFontFamily);
+        font-size: 1.6rem;
+        font-weight: 500;
+        background-color: var(--blackColor);
+        color: var(--whiteColor);
+}
+
+h1, 
+h2,
+h3,
+h4, 
+p, 
+ul, 
+a {
+        margin-top: 0;
+        margin-bottom: 0;
+        color: var(--whiteColor);
+}
+
+h1, 
+h2 {
+        font-family: var(--lobsterFontFamily);
+}
+
+h1 {
+        font-size: min(12vw, 15rem);
+        text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+}
+
+h2 {
+        font-size: min(4.5vw, 8rem);
+        font-weight: 500;
+        text-align: center;
+}
+
+h3 {
+        font-size: min(3vw, 6rem); 
+        font-weight: 500;
+}
+
+h4 {
+        font-size: min(2vw, 4rem);   
+}
+
+p, 
+label, 
+input {
+        font-size: min(1.6vw, 2rem);
+}
+
+ul {
+        padding-left: 0;
+}
+
+li {
+        list-style: none;   
+}
+
+a {
+        font-size: max(1.4vw, 0.8rem);
+        text-decoration: none;
+}
+
+button {
+        border: 0;
+        font-size: max(1.4vw, 1rem);
+        font-weight: 500;
+        color: var(--whiteColor);
+        cursor: pointer;
+}
+
+img {
+        display: inline-block;
+}
+
+label, 
+input {
+        display: block;
+}
+
+
+
+/*******************************************************************************
+                                Media Query - Mobile First
+*******************************************************************************/
+        
+        /* Header 
+***********************************************************************/
+
+header {
+        position: relative;
+        width: var(--width);
+}
+
+h1 {
+        position: relative;
+        opacity: 0;
+        -webkit-transition: all 1s linear;
+        -o-transition: all 1s linear;
+                transition: all 1s linear;
+}
+
+h1.show {
+        -webkit-animation-name: show;
+                animation-name: show;
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+        -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+                animation-fill-mode: both; 
+}
+
+@-webkit-keyframes show {
+        0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -100px, 0);
+                        transform: translate3d(0, -100px, 0);
+        }
+        50% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -50px, 0);
+                        transform: translate3d(0, -50px, 0);
+        }
+        100% {
+                opacity: 1;
+                -webkit-transform: none;
+                        transform: none;
+        }
+}
+
+@keyframes show {
+        0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -100px, 0);
+                        transform: translate3d(0, -100px, 0);
+        }
+        50% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -50px, 0);
+                        transform: translate3d(0, -50px, 0);
+        }
+        100% {
+                opacity: 1;
+                -webkit-transform: none;
+                        transform: none;
+        }
+}
+
+ 
+/* NavBar
+*****************************************/
+nav.connexion {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: var(--width);
+        padding: 2rem;
+}
+
+nav.connexion .toggle {
+        position: relative;
+        z-index: 3;
+        width: 2.5rem;
+        height: 2rem;
+        cursor: pointer;
+}
+
+nav.connexion span.toggleBtn {
+        position: absolute;
+        top: 50%;
+        display: block;
+        width: 100%;
+        height: 0.2rem;
+        -webkit-border-radius: 10px;
+                border-radius: 10px;
+        background-color: var(--whiteColor);
+        -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+        -webkit-transition: background-color 0.5s ease-in-out;
+        -o-transition: background-color 0.5s ease-in-out;
+                transition: background-color 0.5s ease-in-out;
+}
+
+nav.connexion span.toggleBtn:before,
+nav.connexion span.toggleBtn:after {
+        content: '';
+        position: absolute;
+        width: var(--width);
+        height: 0.2rem;
+        -webkit-border-radius: 10px;
+                border-radius: 10px;
+        background-color: var(--whiteColor);
+        -webkit-transition: -webkit-transform 0.5s ease-in-out;
+                transition: -webkit-transform 0.5s ease-in-out;
+        -o-transition: transform 0.5s ease-in-out;
+                transition: transform 0.5s ease-in-out;
+}
+
+nav.connexion span.toggleBtn:before {
+        -webkit-transform: translateY(-0.9rem);
+            -ms-transform: translateY(-0.9rem);
+                transform: translateY(-0.9rem);
+}
+
+nav.connexion span.toggleBtn:after {
+        -webkit-transform: translateY(0.9rem);
+            -ms-transform: translateY(0.9rem);
+                transform: translateY(0.9rem);
+}
+
+nav.connexion .toggle.active span.toggleBtn {
+        background-color: transparent;
+}
+
+nav.connexion .toggle.active span.toggleBtn:before {
+        -webkit-transform: translateY(0) rotateZ(45deg);
+            -ms-transform: translateY(0) rotate(45deg);
+                transform: translateY(0) rotateZ(45deg);
+}
+
+nav.connexion .toggle.active span.toggleBtn:after {
+        -webkit-transform: translateY(0) rotateZ(-45deg);
+            -ms-transform: translateY(0) rotate(-45deg);
+                transform: translateY(0) rotateZ(-45deg);
+}
+
+nav.connexion ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: var(--width);
+        height: 0;
+        background-color: rgba(0,0,0,0.80);
+        -webkit-transition: 1s;
+        -o-transition: 1s;
+        transition: 1s;
+        overflow-y: hidden;
+}
+
+nav.connexion li {
+        margin-top: 9rem;
+        margin-bottom: 9rem;
+}
+
+nav.connexion a {
+        display: block;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 3rem;
+        font-size: 5vw;
+        font-weight: 600; 
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
+        text-align: center; 
+        -webkit-transition: border 0.3s linear;
+        -o-transition: border 0.3s linear;
+                transition: border 0.3s linear;
+}
+
+nav.connexion a:hover {
+        border-bottom: 2px solid var(--whiteColor);
+}
+
+
+/* Logo
+*****************************************/     
+.background img {
+        max-width : var(--width);
+        border-bottom: 3px solid var(--whiteColor);
+        -webkit-filter: brightness(50%);
+                filter: brightness(50%);
+}        
+        
+.logo {
+        position : absolute;
+        top: 50%; 
+        left: 50%;
+        text-align: center;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+}
+
+.logo p {
+        margin-top: 2em;
+        font-size: min(3vw, 8rem);
+        font-weight: 600;
+        line-height: 2em;
+        text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+        opacity: 0;
+}
+.logo p.show2 {
+        -webkit-animation-name: show2;
+                animation-name: show2;
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+        -webkit-animation-duration: 1.2s;
+                animation-duration: 1.2s;
+        -webkit-animation-fill-mode: both;
+                animation-fill-mode: both; 
+}
+
+@-webkit-keyframes show2 {
+        0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 80px, 0);
+                transform: translate3d(0, 80px, 0);
+        }
+        50% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 40px, 0);
+                transform: translate3d(0, 40px, 0);
+        }
+        100% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+        }
+}
+
+@keyframes show2 {
+        0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 80px, 0);
+                transform: translate3d(0, 80px, 0);
+        }
+        50% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 40px, 0);
+                transform: translate3d(0, 40px, 0);
+        }
+        100% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+        }
+}
+
+
+        
+
+
+
+        /* Footer 
+***********************************************************************/
+
+footer p {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+}
+
+footer .pictoFooter {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: space-evenly;
+        -webkit-justify-content: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        margin-bottom: 1rem;
+}
+
+footer a {
+        display: inline-block;
+}
+
+footer a i {
+        display: inline-block;
+        width: var(--width);
+        font-size: 2em;
+        color:var(--whiteColor);
+}
+
+footer .copyright {
+        margin-bottom: 0;
+        padding-bottom: 0.5rem;
+        font-size: min(0.8vw, 1rem);
+        color: rgba(174, 174, 174, 0.149);
+}
+
+      
+
+/*******************************************************************************
+                                Media Query Tablet 
+*******************************************************************************/
+
+@media only screen and (min-width: 481px) {
+
+}
+
+
+
+/*******************************************************************************
+                                Media Query Tablet Landscape
+*******************************************************************************/
+
+@media only screen and (min-width: 769px) {
+        
+                /* Header 
+        ***********************************************************************/
+
+        /* NavBar
+        *****************************************/
+        nav.connexion {
+                padding: 0;
+        }
+
+        nav.connexion .toggle {
+                display: none;
+        }
+        
+        nav.connexion ul {
+                position: static;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-justify-content: space-around;
+                    -ms-flex-pack: distribute;
+                        justify-content: space-around;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        nav.connexion li {
+                margin-top: 1.2rem;
+                margin-bottom: 0;
+        }
+
+        nav.connexion a {
+                border-bottom: 3px solid transparent;
+                padding-bottom: 1.2rem;
+                font-size: max(1.8vw, 1rem);
+        }
+
+        nav.connexion a:hover {
+                border-bottom: 3px solid var(--whiteColor);
+        }
+        
+        nav.connexion .togglebtn{
+                display: none;
+        }
+        
+        /* Logo
+        *****************************************/
+        .logo {
+                left: 27%;
+        }
+
+
+                /* Footer 
+        ***********************************************************************/
+        footer {
+                margin-top: 2rem;
+        }
+
+        footer p {
+                margin-bottom: 3rem;
+        } 
+
+        
+        footer .pictoFooter {
+                margin-bottom: 3rem;
+        }
+}
+
+
+
+/*******************************************************************************
+                                Media Query Laptop
+*******************************************************************************/
+
+@media only screen and (min-width: 1025px) {
+
+                /* Main 
+        ***********************************************************************/
+
+        /* Modal
+        *****************************************/
+        .modal {
+                width: 80%;
+        }
+
+        .modal .button {
+                width: 30%
+        }
+
+        /* HomePage
+        *****************************************/
+        .modal p {
+                padding-bottom: 1.5rem;
+        }
+
+        /* InscriptionPage
+        *****************************************/
+        .modal label {
+                margin-bottom: 2rem;
+        }
+        
+        .modal input {
+                margin-bottom: 2.5rem;
+        }
+
+
+}
+
+/*******************************************************************************
+                                Media Query Desktop
+*******************************************************************************/
+
+@media only screen and (min-width: 1600px) {         
+
+}

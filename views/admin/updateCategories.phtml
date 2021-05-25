@@ -1,0 +1,66 @@
+<h3>
+    Les catégories du menu
+    <a href="admin?task=validateCategories"><i class="fas fa-chevron-left"></i></a>
+</h3>
+<p class="indication">Modifiez le nom et/ou le status d'une catégorie puis validez la ligne.</p>
+<div>
+    <p id="message" class="errorMessage"></p>
+</div>
+<?php if (hasFlashes('error')): ?>
+    <div>
+        <?php foreach (getFlashes('error') as $message): ?>
+            <p class="errorMessage"><?= $message ?></p>
+        <?php endforeach?>
+    </div>
+<?php endif?>
+<div class="borderUp">
+    <table>
+        <thead>
+            <tr>
+                <th>Catégorie</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($categories as $categorie): ?>
+                <tr>
+                    <form action="updateCategory?id=<?=intval($categorie['Id'])?>" method="post" id="updateCategory">
+                        <td>
+                            <div>
+                                <label for="nameCategory<?=intval($categorie['Id'])?>"></label>
+                                <input type="text" name="nameCategory" id="nameCategory<?=intval($categorie['Id'])?>" value="<?=htmlspecialchars($categorie['Name'])?>" onblur="updateCategoryValue(this.name,this.id)" required>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label for="statusCategory<?=intval($categorie['Id'])?>"></label>
+                                <select name="statusCategory" id="statusCategory<?=intval($categorie['Id'])?>">
+                                    <option
+                                        value="Loading"
+                                        <?php if ($categorie['Status'] === 'Loading'):?>
+                                            <?= 'selected'; ?>
+                                        <?php endif; ?>
+                                    >
+                                        En attente
+                                    </option>  
+                                    <option 
+                                        value="Card"
+                                        <?php if ($categorie['Status'] === 'Card') :?>
+                                            <?= 'selected'; ?>
+                                        <?php endif; ?>
+                                    >
+                                        A la carte
+                                    </option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="submit"><i class="fas fa-check" onclick="return validateUpdateCategory()"></i></button>
+                        </td>
+                    </form>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

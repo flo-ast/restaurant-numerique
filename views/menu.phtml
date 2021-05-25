@@ -1,0 +1,45 @@
+<?php if (hasFlashes('error')): ?>
+    <div>
+        <?php foreach (getFlashes('error') as $message): ?>
+            <p class="errorMessage"><?= $message ?></p>
+        <?php endforeach?>
+    </div>
+<?php endif?>
+<div class="mainMenu">
+
+    <!-- NavMenu -->
+    <?php require $menuNav; ?>
+    <!-- End NavMenu -->
+    
+    <!-- ArticleMenu -->
+    <div class="block">
+        <?php foreach ($products as $product): ?>
+            <?php if ($product['Status'] === 'Card') :?>
+                <article class="card" id="card">
+                    <a href="product?id=<?=$product['Id']?>"<?php if ($product['QuantityInStock'] === '0') :?> class="noclick"<?php endif ;?>>
+                        <div class="image">
+                            <img src="upload/<?=htmlspecialchars($product['Photo'])?>" alt="<?=htmlspecialchars($product['AltPhoto'])?>">
+                            <?php if ($product['QuantityInStock'] === '0') :?>
+                                <p class="nostock">En rupture de stock</p>   
+                            <?php endif ;?>
+                        </div>
+                        <div class="text">
+                            <h2><?=htmlspecialchars($product['Name'])?></h2>
+                            <div>
+                                <p><?=htmlspecialchars($product['Description'])?></p>
+                                <p class="price"><?=number_format(floatval($product['Price']), 2, ',', ' ')?>€</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a 
+                    href="addCart?id=<?=intval($product['Id'])?>"
+                    class="button<?php if ($product['QuantityInStock'] === '0') :?> noclick<?php endif ;?>">
+                        <i class="fas fa-cart-plus"></i>
+                    </a>
+                </article>
+            <?php endif ;?>
+        <?php endforeach; ?>
+    </div>
+    <!-- End ArticleMenu -->
+    
+</div>

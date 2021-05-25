@@ -1,0 +1,21 @@
+<!-- NavMenu -->
+<nav class="menu" id="menu">
+    <ul>
+        <?php if ($_SESSION['users']['Admin'] === 1) :?>
+            <li>
+                <a href="admin">Admin</a>
+            </li>
+        <?php endif; ?>
+        <?php foreach ($categories as $categorie): ?>
+            <?php if ($categorie['Status'] === 'Card') :?>
+                <li>
+                    <a 
+                    <?php if (isset($categorie["selected"]) && $categorie["selected"] == 1) {echo ' class="click" ';}?>
+                    href="menu?id=<?=$categorie['OrderMenu']?>"><?= htmlspecialchars($categorie['Name']) ?>
+                    </a>
+                </li>
+            <?php endif ;?>
+        <?php endforeach; ?>
+    </ul>
+</nav>
+<!-- End NavMenu -->

@@ -1,0 +1,56 @@
+<!-- CartPage -->
+<div class="modal cartPage" id="CartPage">
+    <h2>Mon panier</h2>
+    <?php if (hasFlashes('error')): ?>
+        <div>
+            <?php foreach (getFlashes('error') as $message): ?>
+                <p class="errorMessage"><?= $message ?></p>
+            <?php endforeach?>
+        </div>
+    <?php endif?>
+    <?php if (empty($_SESSION['cart'])) : ?>
+        <p>Votre panier est vide</p>
+        <div class="btn">
+            <a href="menu" class="button">Retour</a>
+        </div>
+    <?php else : ?>
+        <form action="validateCart" method="post">
+            <table>
+                <tbody>
+                    <?php for ($i = 0; $i < $numberProduct; $i++) : ?>
+                        <tr>
+                            <td class="tdDish">
+                                <p><?=htmlspecialchars($chunkCart[$i][1])?></p>
+                            </td>
+                            <td class="tdQuantity">
+                                <a href="cartPage?id=<?=intval($chunkCart[$i][0])?>&action=decrease"><i class="fas fa-chevron-left"></i></a>
+                                <span class="tdQuantityBtn"><?=intval($chunkCart[$i][2])?></span>
+                                <input type="hidden" name="idProduct<?=intval($chunkCart[$i][0])?>" value="<?=intval($chunkCart[$i][0])?>"/>
+                                <input type="hidden" name="quantityProduct<?=intval($chunkCart[$i][0])?>" value="<?=intval($chunkCart[$i][2])?>"/>
+                                <a href="cartPage?id=<?=intval($chunkCart[$i][0])?>&action=increase"><i class="fas fa-chevron-right"></i></a>
+                                
+                            </td>
+                            <td class="tdPrice"><?=number_format(floatval($chunkCart[$i][3]), 2, ',', ' ')?>€</td>
+                        </tr>
+                    <?php endfor; ?>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="2" class="thTotal">Total :</th>
+                        <th class="tdPrice"><?=number_format(floatval($priceTotal), 2, ',', ' ');?>€</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="tableNumber">
+                <label for="tableNumber">Entrez le numéro de votre table : </label>
+                <input type="text" id="tableNumber" name="tableNumber" maxlength="2" placeholder="1" required>
+            </div>
+            <div class="btn">
+                <a href="menu" class="button">Retour</a>
+                <a href="cartPage?action=delete" class="button red" onclick="return confirm('Etes-vous sur de vouloir effacer le panier ?');">Effacer</a>
+                <button type="submit" class="button green" onclick="return confirm('Etes-vous sur de vouloir valider le panier ?');">Valider</button>
+            </div>
+        </form>
+    <?php endif; ?>
+</div>
+<!-- End CartPage -->

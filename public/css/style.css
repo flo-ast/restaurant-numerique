@@ -1,0 +1,1150 @@
+/*******************************************************************************
+                                Media Query - Mobile First
+*******************************************************************************/
+
+
+/* Main 
+***********************************************************************/
+
+main {
+        padding-bottom: 4rem;
+}
+
+.mainHome {
+        padding-top: 4rem;
+}
+
+p.errorMessage{
+        width: 65%;
+        margin: 2rem auto 0;
+        color: var(--redColor);
+}
+
+
+/* Modal
+*****************************************/
+.modal {
+        width: 90%;
+        margin: 0 auto;
+        background-color: rgba(174, 174, 174, 0.58);
+        -webkit-box-shadow: 0 8px 32px 0 rgb(32 32 34 / 37%);
+                box-shadow: 0 8px 32px 0 rgb(32 32 34 / 37%);
+        -webkit-border-radius: 14px;
+                border-radius: 14px;    
+}
+
+.cart {
+        opacity: 0;  
+}
+
+.cart.flip {
+        -webkit-animation-name: flip;
+        animation-name: flip;
+        -webkit-transition-timing-function: ease-in;
+        -o-transition-timing-function: ease-in;
+           transition-timing-function: ease-in;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+}
+
+@-webkit-keyframes flip{
+        0% {
+                -webkit-transform: rotate3d(1, 0, 0, 90deg);
+                transform: rotate3d(1, 0, 0, 90deg);
+                opacity: 0;
+                }
+                
+        100% {
+                -webkit-transform: rotate3d(1, 0, 0, 10deg);
+                transform: rotate3d(1, 0, 0, 10deg);
+                opacity: 1;
+        }
+                
+}
+
+@keyframes flip{
+        0% {
+                -webkit-transform: rotate3d(1, 0, 0, 90deg);
+                transform: rotate3d(1, 0, 0, 90deg);
+                opacity: 0;
+                }
+                
+        100% {
+                -webkit-transform: rotate3d(1, 0, 0, 10deg);
+                transform: rotate3d(1, 0, 0, 10deg);
+                opacity: 1;
+        }
+                
+}
+
+.modal h2 {
+        margin-bottom: 2rem;
+        padding-top: 2rem;
+}
+
+.modal .btn {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: space-evenly;
+        -webkit-justify-content: space-evenly;
+        -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+}
+
+.modal .button {
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+        padding-bottom: 0.8em;
+        padding-top: 0.75em;
+        text-align: center;
+        text-transform: uppercase;
+        background-color: var(--blackColor);
+}
+
+.modal .button:hover,
+.modal .button:focus {
+        -webkit-box-shadow: 0 5px 10px 0px rgba(0,0,0,0.22), 0 10px 13px 0px rgba(0,0,0,0.34), inset 0 18px 18px 0 rgba(255, 255, 255, 0.158), inset 0 -18px 18px 0 rgba(0,0,0,0.10);
+                box-shadow: 0 5px 10px 0px rgba(0,0,0,0.22), 0 10px 13px 0px rgba(0,0,0,0.34), inset 0 18px 18px 0 rgba(255, 255, 255, 0.158), inset 0 -18px 18px 0 rgba(0,0,0,0.10);
+        -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+        -webkit-transform: translate(0px, -3px);
+            -ms-transform: translate(0px, -3px);
+                transform: translate(0px, -3px);
+        outline-style: none;
+}
+
+
+/* Error404
+*****************************************/
+.modal.errorDirection {
+        position: absolute;
+        top: 12rem;
+        left: 1.5rem;
+}
+
+
+/* HomePage
+*****************************************/
+.modal p {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-bottom: 1rem;
+}
+
+.modal a.button {
+        width: 35%;
+}
+
+
+/* InscriptionPage
+*****************************************/
+
+.modal form {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-bottom: 1rem;
+}
+
+.modal label {
+        margin-bottom: 1rem;
+        margin-left: 0.5rem;
+}
+
+.modal input {
+        width: var(--width);
+        height: 2em;
+        margin-bottom: 1rem;
+        border: 0;
+        -webkit-border-radius: 4px;
+                border-radius: 4px;
+        padding-left: 2rem;
+        font-family: var(--montserratFontFamily);
+        background-color: var(--whiteColor);
+        color: var(--blackColor);
+}
+
+.modal input::-webkit-input-placeholder {
+        font-family: var(--montserratFontFamily);
+        color: rgba(11, 13, 16, 0.314);
+}
+
+.modal input::-moz-placeholder {
+        font-family: var(--montserratFontFamily);
+        color: rgba(11, 13, 16, 0.314);
+}
+
+.modal input:-ms-input-placeholder {
+        font-family: var(--montserratFontFamily);
+        color: rgba(11, 13, 16, 0.314);
+}
+
+.modal input::-ms-input-placeholder {
+        font-family: var(--montserratFontFamily);
+        color: rgba(11, 13, 16, 0.314);
+}
+
+.modal input::placeholder {
+        font-family: var(--montserratFontFamily);
+        color: rgba(11, 13, 16, 0.314);
+}
+
+.modal input:focus {
+        outline-style: none;
+}
+
+.modal button.button {
+        width: 40%;
+}
+
+.modal .button.green {
+        font-weight: 600;
+        background-color: var(--greenColor);
+        color: var(--blackColor);
+}
+
+.modal .button.red {
+        font-weight: 600;
+        background-color: var(--redColor);
+        color: var(--blackColor);
+}
+
+
+/* CartPage
+*****************************************/
+.modal.cartPage {
+        margin-top: 6rem;
+}
+
+.modal.cartPage table {
+        width: 90%;
+        margin: 0 auto 2rem;
+        border-collapse : separate;
+        border-spacing : 0.5em;
+}
+
+.modal.cartPage tr, 
+.modal.cartPage .tdDish, 
+.modal.cartPage .tdQuantity, 
+.modal.cartPage .tdQuantity span.tdQuantityBtn, 
+.modal.cartPage .tdPrice {
+        height: 2.5em;
+}
+
+.modal.cartPage tr {
+        width: var(--width);
+        font-size: min(1.6vw, 2rem);
+}
+
+.modal.cartPage .thTotal {
+        text-align: end;
+}
+
+.modal.cartPage .tdDish {
+        width: 50%;
+}
+
+.modal.cartPage .tdDish p {
+        width: var(--width);
+        height: 100%;
+        margin: 0;
+        -webkit-border-radius: 0.5em;
+                border-radius: 0.5em;
+        padding-bottom: 0;
+        font-size: min(1.6vw, 2rem);
+        line-height: 2.3;
+        text-align: center;
+        backdrop-filter: brightness(40%);
+        -webkit-backdrop-filter: brightness(40%); 
+}
+
+.modal.cartPage .tdQuantity {
+        width: 30%;
+        text-align: center;
+        color: var(--whiteColor);
+}
+
+.modal.cartPage .tdQuantity .fas {
+        width: 30%;
+        vertical-align: middle;
+        font-size: min(1.6vw, 2rem);   
+        color: rgba(11, 13, 16, 0.314);
+        cursor: pointer;
+}
+
+.modal.cartPage .tdQuantity span.tdQuantityBtn {
+        width: 30%;
+        vertical-align: middle;
+}
+
+.modal.cartPage .tdPrice {
+        width: 20%;
+        text-align: end;
+}
+
+.modal.cartPage .tdCross button.btnRemoveDish {
+        color: var(--redColor);
+        background-color: transparent;
+        cursor: pointer;
+}
+
+.modal.cartPage .tableNumber {
+        text-align: center;
+}
+
+.modal.cartPage label {
+        display: inline;
+        width: 50%;
+}
+
+.modal.cartPage input {
+        display: inline;
+        width: 2em;
+        margin-left: 1rem;
+        padding-left: 1rem;
+}
+
+.modal.cartPage .btn .button {
+        width: 25%;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        font-size: max(1.4vw, 0.8rem);
+}
+
+
+
+
+/* PaiementPage
+*****************************************/
+.modal.paiementPage p {
+        font-size: min(3vw, 7rem);
+}
+
+.modal.paiementPage li p {
+        text-align: center;
+}
+
+.modal.paiementPage p.dark {
+        margin-bottom: 0;
+        color: var(--blackColor);
+}
+.modal.modal.paiementPage .btn a.button {
+        margin-top: 1rem;
+}
+
+.modal.modal.paiementPage .btn a.button i {
+        padding-left: 1rem;
+}
+
+
+/* NavMenu
+*****************************************/
+.mainMenu {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+}
+
+.menu {
+        position: -webkit-sticky;
+        position: sticky;;
+        top: 50%;
+        width: 10%;
+        margin-top: 4rem;
+}
+
+.menu li {
+        position: relative;
+        padding: 0.5em;
+}
+
+.menu li a {
+        display: inline;
+        border-left: 1px solid transparent;
+        padding-left: 0.5rem;
+        -webkit-writing-mode: vertical-lr;
+        -ms-writing-mode: tb-lr;
+        writing-mode: vertical-lr;
+        color: var(--greyColor);
+        -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+        -webkit-transition: border 0.5s ease-in-out;
+        -o-transition: border 0.5s ease-in-out;
+        transition: border 0.5s ease-in-out;
+
+}
+
+.menu li a.click,
+.menu li:hover a.click {
+        border-left: 1px solid var(--whiteColor);
+        color: var(--whiteColor);
+
+}
+
+.menu li:hover a {
+        border-left: 1px solid var(--greyColor);
+}
+
+
+/* ArticleMenu
+*****************************************/
+.block {
+        width: 90%;
+}
+
+.block article.card {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: -webkit-calc(var(--width) - 4rem);
+        width: calc(var(--width) - 4rem);
+        margin: 2rem;
+        border: 1px solid  var(--greyColor);
+        -webkit-border-radius: 10px;
+                border-radius: 10px;
+        padding: 1rem;
+        -webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	    transform: scale(1);
+	-webkit-transition: .2s ease-in-out;
+	-o-transition: .2s ease-in-out;
+	transition: .2s ease-in-out;
+}
+
+.block article.card:hover {
+        -webkit-transform: scale(1.02);
+	-ms-transform: scale(1.02);
+	    transform: scale(1.02);
+}
+
+
+.block a.noclick {
+        opacity:0.3;
+        pointer-events: none;
+}
+
+.block article.card a {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 90%;
+}
+
+.block article.card a .image {
+        position: relative;
+        width: 35%;
+}
+
+.block article.card a .image img {
+        display: block;
+        max-width: var(--width);
+        max-height: 90%;
+        margin: 0 auto;
+        -webkit-border-radius: 10px;
+                border-radius: 10px;
+}
+
+.block article.card a .text {
+        width: 65%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+}
+
+.block article.card a .text h2 {
+        font-size: min(3vw, 6rem);
+        text-align: left;
+}
+
+.block article.card a .text p {
+        width: 80%; 
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+}
+
+.block article.card a .text p.price{
+        width: var(--width);
+        font-size: min(2vw, 4rem);
+        text-align: right;
+        font-weight: 600;
+}
+
+.block article.card p.nostock {
+        position: absolute;
+        top: 2em;
+        width: 100%;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        color: rgb(250,250,250);
+        background-color: var(--redColor);
+        text-align: center;
+        
+}
+
+.block article.card .button {
+        width: 10%;
+        padding: 0;
+        background-color: var(--blackColor);
+}
+
+.block article.card .button i {
+        margin: auto 0;
+        font-size: 1.5em;
+        color: var(--greenColor);
+}
+
+
+/* ArticleProduct
+*****************************************/
+.block article.product {
+        text-align: center;
+}
+
+.block article.product img {
+        display: block;
+        width: 90%;
+        margin: 2em auto;
+        -webkit-border-radius: 14px 14px 0 0;
+                border-radius: 14px 14px 0 0;
+}
+
+.block article.product h3 {
+        margin-top: 1.5em;
+        margin-bottom: 0.6em;
+        font-size: min(2.3vw, 6rem);
+        text-decoration: underline;
+}
+
+.block article.product a {
+        display: inline-block;
+        width: 80%;
+        margin-bottom: 3em;
+        margin-top: 2em;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+        padding-bottom: 0.8em;
+        padding-top: 0.75em;
+        text-align: center;
+        background-color: var(--greenColor);
+        color: var(--blackColor);
+}
+
+.block article.product a i {
+        font-size: 1.8em;
+}
+
+
+
+/* Admin
+*****************************************/
+
+.admin {
+        width: 90%;
+        margin: 0 auto;
+}
+
+.admin h2 {
+        margin-top: 1em;
+        text-align: center;
+}
+
+.admin h3 {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-family: var(--montserratFontFamily);
+        text-align: center;
+}
+
+.admin h4 {
+        padding-bottom: 0.5em;
+        text-decoration: underline;
+}
+
+.admin a,
+.admin button {
+        margin-left: 0.8em;
+        border: 1px solid var(--greenColor);
+        -webkit-border-radius: 5px;
+                border-radius: 5px;
+        padding: 0.5em;
+        background-color: var(--blackColor);
+        color: var(--greenColor);
+        -webkit-transition: all 0.2s linear;
+        -o-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+}
+
+.admin a:hover,
+.admin button:hover{
+        border: 1px solid transparent;
+        background-color: var(--greenColor);
+        color: var(--blackColor);
+        -webkit-transform: translate(0px, -2px);
+                -ms-transform: translate(0px, -2px);
+                transform: translate(0px, -2px);
+        -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+}
+
+.admin a.check,
+.admin button.check{
+        border: 1px solid var(--redColor);
+        color: var(--redColor);
+}
+
+.admin a.check:hover,
+.admin button.check:hover{
+        color: var(--blackColor);
+        background-color: var(--redColor);
+}
+
+.admin .border p.drop {
+        width: 80%;
+        margin: 0.2em auto;
+        border: 1px solid var(--greyColor);
+        -webkit-border-radius: 0.2em;
+                border-radius: 0.2em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        background-color: var(--blackColor);
+        color: var(--whiteColor);
+        -webkit-transition: all 0.3s linear;
+        -o-transition: all 0.3s linear;
+                transition: all 0.3s linear;
+}
+
+.admin .border p.drop:hover {
+        border: 1px solid transparent;
+        background-color: var(--whiteColor);
+        color: var(--blackColor);
+}
+
+.admin .border p.drop.dragged {
+        border: 1px solid transparent;
+        background-color: var(--greyColor);
+        color: var(--blackColor);
+}
+
+.admin .border p.drop.draggedOn {
+        border: 1px solid var(--whiteColor);
+        -webkit-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+                transform: scale(1.05);
+}
+
+.admin .border p.drop.shake {
+        -webkit-animation: 0.4s shake;
+                animation: 0.4s shake;
+}
+
+@-webkit-keyframes shake {
+        20% {-webkit-transform: translateX(1px);transform: translateX(1px);}
+        40% {-webkit-transform: translateX(-1px);transform: translateX(-1px);}
+        60% {-webkit-transform: translateX(1px);transform: translateX(1px);}
+        80% {-webkit-transform: translateX(-1px);transform: translateX(-1px);}
+}
+
+@keyframes shake {
+        20% {-webkit-transform: translateX(1px);transform: translateX(1px);}
+        40% {-webkit-transform: translateX(-1px);transform: translateX(-1px);}
+        60% {-webkit-transform: translateX(1px);transform: translateX(1px);}
+        80% {-webkit-transform: translateX(-1px);transform: translateX(-1px);}
+}
+
+.admin .border {
+        width: 40%;
+        margin: 2em auto 4em;
+        border: 2px solid var(--greyColor);
+        -webkit-border-radius: 10px;
+                border-radius: 10px;
+        padding: 2em 0.8em;
+        text-align: center;
+}
+
+.admin .borderUp {
+        width: 70%;
+        margin: 2em auto 4em;
+        border: 2px solid var(--greyColor);
+        -webkit-border-radius: 10px;
+                border-radius: 10px;
+        padding: 2em 0.8em;
+        text-align: center;
+}
+
+.admin table {
+        margin: 0 auto;
+        border-collapse: collapse;
+        padding: 1rem;
+}
+
+.admin tr:not(:last-child) {
+        border-bottom: 2px solid var(--greyColor);
+}
+
+.admin .tableLong {
+        width: 100%;
+        height: 80rem;
+        margin: 2em auto 4em;
+        border: 2px solid var(--greyColor);
+        -webkit-border-radius: 10px;
+                border-radius: 10px;
+        padding: 2em;
+        text-align: center;
+        overflow-x: scroll;
+        overflow-y: scroll;
+}
+
+.admin .tableLong.unic {
+        height: auto;
+        overflow-x: none;
+}
+
+::-webkit-scrollbar:horizontal {
+        width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+        -webkit-border-radius: 10px;
+                border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                box-shadow: inset 0 0 6px rgba(0,0,0,0.3);;
+}
+
+::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+                border-radius: 10px;
+        background: var(--greyColor); 
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+                box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+        background: var(--greyColor); 
+}
+
+
+.admin thead th,
+.admin tbody td {
+        padding: 0.8em 1.2em;
+}
+
+.admin thead tr th,
+.admin tbody tr td {
+        border: 0;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        padding-left: 1rem;
+        background-color: var(--blackColor);
+        color: var(--whiteColor);
+        font-family: var(--montserratFontFamily);
+        font-size: min(1.8vw, 2rem);
+}
+
+.admin th {
+        padding: 0;
+        text-align: left;
+        text-decoration: underline;
+}
+
+
+.admin select,
+.admin input, 
+.admin textarea {
+        border: 0;
+        -webkit-border-radius: 4px;
+                border-radius: 4px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;; 
+        background-color: var(--whiteColor);
+        color: var(--blackColor);
+}
+
+.admin textarea {
+        height: 8em;
+}
+
+.admin .allergens {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: space-around;
+                -ms-flex-pack: distribute;
+                justify-content: space-around;
+        -webkit-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        width: 20em;
+}
+
+.admin .allergens div {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+        width: 40%;
+        margin-bottom: 0.5em;
+}
+
+.admin label {
+        margin-left: 0.5em;
+}
+
+.admin input[type="checkbox"] {
+        margin: auto 0;
+        -webkit-transform: scale(0.7);
+            -ms-transform: scale(0.7);
+                transform: scale(0.7);
+}
+
+.admin label.checkboxLabel {
+        width: 80%;
+}
+
+.admin img {
+        max-width: var(--width);
+        height: 2.5em;
+        -webkit-border-radius: 7px;
+                border-radius: 7px;
+}
+
+.admin .indication {
+        text-align: center;
+}
+    
+    
+
+
+/*******************************************************************************
+                                Media Query Tablet 
+*******************************************************************************/
+
+@media only screen and (min-width: 481px) {
+
+        /* Error404
+        *****************************************/
+        .modal.errorDirection {
+                top: 20rem;
+                left: 3rem;
+        }
+
+
+        /* HomePage
+        *****************************************/
+        .modal a.button {
+                width: 25%;
+        }
+}
+
+
+
+/*******************************************************************************
+                                Media Query Tablet Landscape
+*******************************************************************************/
+
+@media only screen and (min-width: 769px) {
+
+        
+        p.errorMessage{
+                width: 75%;
+        }
+
+
+                /* Main 
+        ***********************************************************************/
+
+        /* Modal
+        *****************************************/
+        .modal {
+                width: 70%;
+                padding: 5rem;
+        }
+
+        .modal h2 {
+                margin-bottom: 4rem;
+        }
+
+        .modal .btn {
+                margin-top: 2rem
+        }
+
+        .modal .button {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+        }
+        
+        
+        /* Error404
+        *****************************************/
+        .modal.errorDirection {
+                left: 12rem;
+        }
+
+
+         /* HomePage
+        *****************************************/
+        .modal p {
+                margin-bottom: 2rem;
+        }
+
+
+         /* NavMenu
+        *****************************************/
+        .mainMenu {
+                display: block;
+        }
+
+        .menu {
+                position: static;
+                width: var(--width);
+        }
+
+        .menu ul {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: space-evenly;
+                -webkit-justify-content: space-evenly;
+                -ms-flex-pack: space-evenly;
+                        justify-content: space-evenly;
+        }
+
+        .menu li a {
+                display: block;
+                border-left: none;
+                border-bottom: 3px solid transparent;
+                padding-left: 0;
+                padding-bottom: 0.5rem;
+                font-size: min(1.8vw, 2rem);
+                -webkit-writing-mode: horizontal-tb;
+                -ms-writing-mode: lr-tb;
+                        writing-mode: horizontal-tb;
+                -webkit-transform: rotate(0);
+                    -ms-transform: rotate(0);
+                        transform: rotate(0);
+                -webkit-transition: border 0.5s ease-in-out;
+                -o-transition: border 0.5s ease-in-out;
+                        transition: border 0.5s ease-in-out;
+        }
+
+        .menu li a.click,
+        .menu li:hover a.click {
+                border-left: none;
+                border-bottom: 3px solid var(--whiteColor);
+        }
+
+        .menu li:hover a {
+                border-left: none;
+                border-bottom: 3px solid var(--greyColor);
+        }
+
+        /* ArticleMenu
+        *****************************************/
+        .block {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-flex-wrap: wrap;
+                    -ms-flex-wrap: wrap;
+                        flex-wrap: wrap;
+                -webkit-box-pack: space-evenly;
+                -webkit-justify-content: space-evenly;
+                    -ms-flex-pack: space-evenly;
+                        justify-content: space-evenly;
+                width: 80%;
+                margin: 0 auto;
+        }
+
+        .block article.card {
+                display: block;
+                width: 40%;
+                height: 100%;
+                margin: 2.5em 0 0;
+                padding: 0;
+        }
+
+        .block article.card a {
+                -webkit-flex-wrap: wrap;
+                    -ms-flex-wrap: wrap;
+                        flex-wrap: wrap;
+                width: var(--width);
+                height: 80%;
+        }
+
+        .block article.card a .image {
+                width: var(--width);
+                height: auto;
+        }
+
+        .block article.card a .image img {
+                width: var(--width);
+                max-height: none;
+                -webkit-border-radius: 10px 10px 0 0;
+                        border-radius: 10px 10px 0 0;
+        }
+
+        .block article.card a .text {
+                width: var(--width);
+                text-align: center;
+        }
+
+        .block article.card a .text h2 {
+                margin-top: 0.3em;
+                margin-bottom: 0.5em;
+                font-size: min(3vw, 4rem);
+                text-align: center;
+        }
+
+        .block article.card a .text p {
+                width: var(--width);
+                height: 4.5em;
+        }
+
+        .block article.card a .text p.price {
+                height: auto;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                text-align: center;
+        }
+
+        .block article.card .button {
+                width: 100%;
+                height: 20%;
+                -webkit-border-radius: 0 0 8px 8px;
+                        border-radius: 0 0 8px 8px;
+                padding: 0.5em;
+                background-color: var(--greenColor);
+        }
+
+        .block article.card .button i {
+                margin: 0.5rem auto;
+                color: var(--blackColor);
+        }
+
+}
+
+
+
+/*******************************************************************************
+                                Media Query Laptop
+*******************************************************************************/
+
+@media only screen and (min-width: 1025px) { 
+        
+        p.errorMessage{
+                margin-top: 5rem;
+        }
+
+                /* Main 
+        ***********************************************************************/
+
+        /* Modal
+        *****************************************/
+        .modal {
+                width: 60%;
+                -webkit-border-radius: 30px;
+                        border-radius: 30px;
+        }
+
+        .modal .button {
+                width: 30%;
+                -webkit-border-radius: 15px;
+                        border-radius: 15px;
+        }
+        
+        /* Error404
+        *****************************************/
+        .modal.errorDirection {
+                left: 30rem;
+        }
+
+        /* HomePage
+        *****************************************/
+        .modal p {
+                padding-bottom: 1.5rem;
+        }
+
+        .modal a.button {
+                width: 30%;
+        }
+
+        /* InscriptionPage
+        *****************************************/
+        .modal label {
+                margin-bottom: 2rem;
+        }
+        
+        .modal input {
+                margin-bottom: 2.5rem;
+        }
+
+        .modal button.button {
+                width: 30%;
+        }
+
+        /* ArticleMenu
+        *****************************************/
+        .block article.card {
+                width: 30%;
+        }
+
+        /* Admin
+        *****************************************/
+        .admin input[type="checkbox"] { 
+                -webkit-transform : scale(2); 
+                    -ms-transform : scale(2); 
+                        transform : scale(2); 
+                margin-left: 1rem;
+        }
+
+
+}
+
+/*******************************************************************************
+                                Media Query Desktop
+*******************************************************************************/
+
+@media only screen and (min-width: 1600px) {
+        
+                /* Main
+        ***********************************************************************/
+        
+        /* ArticleMenu
+        *****************************************/
+        .block article.card {
+                margin-top: 7em;
+        }
+
+        /* Admin
+        *****************************************/
+        .admin input[type="checkbox"] {
+                margin-left: 2rem;
+                -webkit-transform: scale(2.5);
+                    -ms-transform: scale(2.5);
+                        transform: scale(2.5);
+            }
+
+}

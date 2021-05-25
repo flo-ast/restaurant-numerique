@@ -1,0 +1,34 @@
+<div class="mainMenu">
+
+    <!-- NavMenu -->
+    <?php require $menuNav; ?>
+    <!-- End NavMenu -->
+
+    <!-- ArticleProduct -->
+    <div class="block">
+        <?php if (hasFlashes('error')): ?>
+            <div>
+                <?php foreach (getFlashes('error') as $message): ?>
+                    <p class="errorMessage"><?= $message ?></p>
+                <?php endforeach?>
+            </div>
+        <?php endif?>
+        <article class="product">
+            <img src="upload/<?=htmlspecialchars($product['Photo'])?>" alt="<?=htmlspecialchars($product['AltPhoto'])?>">
+            <h2><?=htmlspecialchars($product['Name'])?></h2>
+            <h3>Descriptif:</h3> 
+            <p><?=htmlspecialchars($product['Description'])?></p>
+            <h3>Allergènes:</h3> 
+                <?php foreach ($allergens as $allergen): ?>
+                    <p>
+                        <?= htmlspecialchars($allergen['Name']) ?> 
+                    </p>
+                <?php endforeach; ?>
+            <h3>Prix:</h3>
+            <p><?=number_format(floatval($product['Price']), 2, ',', ' ')?>€</p>      
+            <a href="addCart?id=<?=intval($product['Id'])?>"<?php if ($product['QuantityInStock'] === '0') :?> class="noclick"<?php endif ;?>><i class="fas fa-cart-plus"></i></a>
+        </article>
+    </div>
+    <!-- End ArticleProduct -->
+    
+</div>

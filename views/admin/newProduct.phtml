@@ -1,0 +1,104 @@
+<h3>
+    Les produits
+    <a href="admin?task=validateProducts"><i class="fas fa-chevron-left"></i></a>
+</h3>
+<p class="indication">Scrollez de gauche à droite pour découvrir toutes les données du produit.<br>
+                      Ajoutez tous les éléments d'un produit (n'oubliez pas la photo au format jpg ou png) puis validez la ligne.
+</p>
+<div>
+    <p id="message" class="errorMessage"></p>
+</div>
+<?php if (hasFlashes('error')): ?>
+    <div>
+        <?php foreach (getFlashes('error') as $message): ?>
+            <p class="errorMessage"><?= $message ?></p>
+        <?php endforeach?>
+    </div>
+<?php endif?>
+<div class="tableLong unic">
+    <table>
+        <thead>
+            <tr>
+                <th>Catégories</th>
+                <th>Produits</th>
+                <th>Photos</th>
+                <th>Descriptions</th>
+                <th>Allergènes</th>
+                <th>Status</th>
+                <th>Quantités</th>
+                <th>Prix</th> 
+                <th></th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <form action="newProduct" method="post" enctype="multipart/form-data" id="newProduct">
+                    <td>
+                        <div>
+                            <label for="categoryProduct"></label>
+                            <select name="categoryProduct" id="categoryProduct">
+                                <?php foreach ($categories as $categorie) : ?>
+                                    <option value="<?=intval($categorie['Id'])?>">
+                                        <?=$categorie['Name']?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <label for="nameNewProduct"></label>
+                            <input type="text" id="nameNewProduct" name="nameProduct" value="Nom du produit" onClick="eraseValue('Nom du produit',this.id)" onMouseOut="restoreValue('Nom du produit',this.id)" onblur="newProductValue('Nom du produit',this.id)" required/>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <label for="imageProduct"></label>
+                            <input type="file" id="imageNewProduct" name="imageProduct" accept="image/png, image/jpeg" onblur="newProductValue('',this.id)"required/>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <label for="descriptionNewProduct"></label>
+                            <textarea id="descriptionNewProduct" name="descriptionProduct" maxlength="100" value="Descriptif du produit" onClick="eraseValue('Descriptif du produit',this.id)" onMouseOut="restoreValue('Descriptif du produit',this.id)" onblur="newProductValue('Descriptif du produit',this.id)" required></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="allergens">
+                            <?php foreach ($allergens as $allergen) : ?>
+                                <div>
+                                    <input type="checkbox" id="checkboxLabel<?=intval($allergen['Id'])?>" name="allergens<?=intval($allergen['Id'])?>" value="<?=intval($allergen['Id'])?>"/>
+                                    <label class="checkboxLabel" for="checkboxLabel<?=intval($allergen['Id'])?>"><?=htmlspecialchars($allergen['Name'])?></label>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <label for="statusProduct"></label>
+                            <select name="statusProduct" id="statusProduct">
+                                <option value="Loading">En attente</option>  
+                                <option value="Card">A la carte</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <label for="quantityNewProduct"></label>
+                            <input type="number" id="quantityNewProduct" name="quantityProduct" value="xx" onClick="eraseValue('xx',this.id)" onMouseOut="restoreValue('xx',this.id)" onblur="newProductValue('xx',this.id)"/>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <label for="priceNewProduct"></label>
+                            <input type="number" id="priceNewProduct" name="priceProduct" value="xx.xx" onClick="eraseValue('xx.xx',this.id)" onMouseOut="restoreValue('xx.xx',this.id)" onblur="newProductValue('xx.xx',this.id)"/>
+                        </div>
+                    </td>
+                    <td>
+                        <button type="submit" onclick="return validateNewProduct()"><i class="fas fa-check"></i></button>
+                    </td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+</div>
