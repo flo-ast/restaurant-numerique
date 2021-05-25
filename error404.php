@@ -37,7 +37,7 @@
                     <span class="toggleBtn"></span>
                 </div>
                 <ul>
-                    <?php if(isset($_SESSION['users'])): ?>
+                    <?php if(isset($_SESSION['users'])) : ?>
                         <li><a href="logout">Déconnexion</a></li>
                         <li><a href="cartPage"><i class="fas fa-shopping-cart"></i></a></li>
                     <?php else: ?>
